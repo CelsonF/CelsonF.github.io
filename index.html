@@ -6,7 +6,7 @@
   </head>
   <body>
       <h2> This is my Projects CS50 - Progess</h2>
-      <div id="#msg"> <p>    </p>  </div>  
+      <div id="#msg">   </div>  
       
      
     <script>
@@ -15,7 +15,7 @@
       
          let inputMsg = `Seja bem vindo a minha página ${name} .`;
 
-         let reciveMsg = document.querySelector('#msg p').innerHTML = inputMsg; 
+         let reciveMsg = document.getElementById("msg").innerHTML = `<p> ${inputMsg} </p>`; 
       }
       nameWelcome();
     
