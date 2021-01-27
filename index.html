@@ -6,15 +6,19 @@
   </head>
   <body>
       <h2> This is my Projects CS50 - Progess</h2>
-      <div id="#msg">   </div>  
+      <div id="#msg"> <p></p>  </div>  
       
      
     <script>
-    let name = prompt("Digite seu nome antes de Entrar ná página:");
+      function nameWelcome() {
+         let name = prompt("Digite seu nome antes de Entrar ná página:");
       
-    let inputMsg = `Seja bem vindo a minha página ${name} .`;
+         let inputMsg = `Seja bem vindo a minha página ${name} .`;
 
-    let reciveMsg = document.querySelector('#msg').innerHTML = inputMsg; 
+         let reciveMsg = document.querySelector('#msg p').innerHTML = inputMsg; 
+      }
+      nameWelcome();
+    
       
     </script>
   </body>
