@@ -1,25 +1,68 @@
-<!DOCTYPE html>
-<html lang="en"> 
-  <head> 
-     <title> Simple page for Projects CS50</title>
-     <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-      <h2> This is my Projects CS50 - Progess</h2>
-      <div id="msg">   </div>  
-      
-     
-    <script>
-      function nameWelcome() {
-         let name = prompt("Digite seu nome antes de Entrar ná página:");
-      
-         let inputMsg = `Seja bem vindo a minha página ${name} .`;
 
-         let reciveMsg = document.getElementById("msg").innerHTML = `<p> ${inputMsg} </p>`; 
-      }
-      nameWelcome();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Teste do MAP - API </title>
     
-      
+    <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon">
+    <link rel="icon"  type="image/x-icon">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+ 
+    <style>
+        #map-leaflet{
+            height: 30rem;
+            width: 32rem;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1 class="text-center"> Maps utilizando Leaftlet </h1>
+
+    <div id="map-leaflet" class="m-auto">   
+
+    </div>
+
+   
+       
+     
+    
+    <script>
+        var mymap = L.map('map-leaflet');
+        
+        var marker = L.marker([-19.9416, -44.037]).addTo(mymap);
+
+        var accessTokenLMT = 'pk.eyJ1IjoiY2Vsc29uZmVybmFuZG8iLCJhIjoiY2tnOHUxYWNhMDF0bDMybzMyM2N3cWt5OSJ9.202NsaNbEKwl3E-vKkFJaQ';
+       
+        mymap.setView([-19.9416, -44.037], 17);
+
+        mymap.zoomControl.remove();
+        L.control.zoom({position: 'bottomright'}).addTo(mymap);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token='+accessTokenLMT+'', {
+           attribution: '<a href="www.https://leafletjs.com"></a> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://www.mapbox.com/">Mapbox</a>',
+           id:'mapbox/streets-v11',
+           tileSize: 512,
+           minZoom:17,
+           maxZoom: 18,
+           zoomOffset: -1,
+           accessToken:accessTokenLMT
+        }).addTo(mymap); 
+
+        marker.bindPopup("<b>Logistic Mobile Technology </b> <br> Av. Jose Faria da Rocha <b> Nº 4712</b> <br>  <b>Contagem - MG</b> <br><b>Eldorado</b>").openPopup();
+
     </script>
-  </body>
+</body>
 </html>
